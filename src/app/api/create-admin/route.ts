@@ -6,8 +6,8 @@ export async function GET() {
   try {
     const userCredential = await createUserWithEmailAndPassword(
       auth,
-      "cerberus404x@gmail.com",
-      "botak239"
+      "email@example.com",
+      "123456"
     );
     return NextResponse.json({
       success: true,
