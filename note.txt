@@ -1,0 +1,7 @@
+echo "# portofolio-hendri" >> README.md
+git init
+git add README.md
+git commit -m "Update Commit [ 20 - 09 - 2026 | 13:31 ]"
+git branch -M main
+git remote add origin https://github.com/kyy-95631488/portofolio-hendri.git
+git push -u origin main
