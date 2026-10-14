@@ -720,19 +720,19 @@ export default function AdminProjects() {
               key={project.id}
               className="group relative rounded-2xl ring-1 ring-white/10 bg-[#0a051e]/80 overflow-hidden hover:ring-purple-500/50 transition-all duration-500 hover:shadow-[0_0_30px_rgba(168,85,247,0.15)] flex flex-col outline-none transform-gpu"
             >
-              <div className="aspect-video relative overflow-hidden bg-white/5">
+              <div className="relative overflow-hidden bg-white/5 w-full">
                 {project.imageUrl ? (
                   <img
                     src={project.imageUrl}
                     alt={project.title}
-                    className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
+                    className="w-full h-auto block group-hover:scale-105 transition-transform duration-500"
                   />
                 ) : (
-                  <div className="flex items-center justify-center h-full">
+                  <div className="flex items-center justify-center h-48 aspect-video">
                     <FolderKanban className="h-8 w-8 text-gray-500" />
                   </div>
                 )}
-                <div className="absolute inset-0 bg-gradient-to-t from-[#0a051e] via-[#0a051e]/50 to-transparent opacity-80" />
+                <div className="absolute inset-0 bg-gradient-to-t from-[#0a051e]/40 via-transparent to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 pointer-events-none" />
               </div>
               <div className="p-5 flex-1 flex flex-col">
                 <h3 className="text-xl font-bold text-white mb-2 line-clamp-1">{project.title}</h3>
@@ -751,7 +751,7 @@ export default function AdminProjects() {
                     </span>
                   )}
                 </div>
-                <div className="flex gap-3">
+                <div className="flex gap-3 mt-auto">
                   <button
                     onClick={() => openEditor(project)}
                     className="flex-1 flex items-center justify-center gap-2 bg-white/5 hover:bg-white/10 text-white py-2.5 rounded-xl transition-all border border-white/10 hover:border-white/20 font-medium"

@@ -195,37 +195,37 @@ export const ProjectDetailModal = ({
             <div className="overflow-y-auto flex-1 [&::-webkit-scrollbar]:w-1.5 [&::-webkit-scrollbar-thumb]:bg-white/10 [&::-webkit-scrollbar-thumb]:rounded-full">
 
               {/* ---- Image gallery ---- */}
-              <div className="relative w-full bg-black/40">
-                <div className="relative w-full aspect-video overflow-hidden">
+              <div className="relative w-full">
+                <div className="relative w-full overflow-hidden">
                   <AnimatePresence mode="wait">
                     <motion.div
                       key={currentImage}
-                      initial={{ opacity: 0, scale: 1.04 }}
-                      animate={{ opacity: 1, scale: 1 }}
+                      initial={{ opacity: 0 }}
+                      animate={{ opacity: 1 }}
                       exit={{ opacity: 0 }}
-                      transition={{ duration: 0.3 }}
-                      className="absolute inset-0"
+                      transition={{ duration: 0.2 }}
+                      className="w-full"
                     >
-                      {currentImage ? (
-                        /* Use plain <img> to avoid Next.js /_next/image proxy
-                           which IDM intercepts as a download */
-                        // eslint-disable-next-line @next/next/no-img-element
-                        <img
-                          src={currentImage}
-                          alt={project.title}
-                          className="w-full h-full object-cover"
-                          loading="eager"
-                        />
-                      ) : (
-                        <div className="w-full h-full flex items-center justify-center bg-white/5">
-                          <span className="text-gray-500 text-sm">No image</span>
-                        </div>
-                      )}
-                    </motion.div>
-                  </AnimatePresence>
+                    {currentImage ? (
+                      /* Use plain <img> to avoid Next.js /_next/image proxy
+                         which IDM intercepts as a download */
+                      // eslint-disable-next-line @next/next/no-img-element
+                      <img
+                        src={currentImage}
+                        alt={project.title}
+                        className="w-full h-auto block"
+                        loading="eager"
+                      />
+                    ) : (
+                      <div className="w-full aspect-video flex items-center justify-center bg-white/5">
+                        <span className="text-gray-500 text-sm">No image</span>
+                      </div>
+                    )}
+                  </motion.div>
+                </AnimatePresence>
 
-                  {/* Subtle bottom gradient — only for dot legibility */}
-                  <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
+                {/* Subtle bottom gradient — only for dot legibility */}
+                <div className="absolute bottom-0 left-0 right-0 h-16 bg-gradient-to-t from-black/40 to-transparent pointer-events-none" />
 
                   {/* Prev / Next arrows */}
                   {allImages.length > 1 && (
